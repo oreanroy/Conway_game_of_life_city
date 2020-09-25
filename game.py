@@ -14,7 +14,7 @@ grid = Board([[random.randint(0, 1) for i in range(40)] for j in range(24)])
 img = image('Resources/delhi_img.PNG')
 img.convert_to_black()
 img.compress(40, 24)
-grid = Board(img.get_binary_arr())
+#grid = Board(img.get_binary_arr())
 #grid = Board([[0,0,0,0,0,0,0,0,0,0,0],
 #              [0,0,0,0,0,0,0,0,0,0,0],
 #              [0,0,0,0,1,0,0,0,0,0,0],
@@ -32,10 +32,15 @@ pygame.display.set_caption("GRID")
 clock = pygame.time.Clock()
 done = False
 
+pause = False
+
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_p: pause = True
+            if event.key == pygame.K_s: pause = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             # think of replacing with round off
@@ -56,9 +61,10 @@ while not done:
                               (margin+height)*row+margin,
                              width,
                              height])
-    grid.update()
+    if not pause:
+        grid.update()
     #frames per sec
-    clock.tick(60)
+    clock.tick(30)
     pygame.display.flip()
 
 pygame.quit()
