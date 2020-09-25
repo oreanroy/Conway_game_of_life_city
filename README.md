@@ -6,5 +6,6 @@
 #### Run using the game class
 ##### Use p(key) to pause, s(key) to resume
 <br/>
+
 #### Increasing the number of pixels
-<img src="/Resources/conway_small_pix.jpg"></img>
+<img src="/Resources/conway_small_pix.PNG"></img>
