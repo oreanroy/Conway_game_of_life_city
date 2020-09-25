@@ -19,7 +19,7 @@ class image:
 
     def convert_to_black(self):
         self.img = self.img.convert('1')
-        self.img.save('Resources/black_delhi.png')
+        #self.img.save('Resources/black_delhi2.png')
 
     def get_binary_arr(self):
         arr = []
@@ -27,7 +27,7 @@ class image:
             col = []
             for j in range(self.width):
                 pixel_rgb = self.img.load()[i,j]
-                if pixel_rgb == 255:
+                if pixel_rgb >= 180:
                     col.append(1)
                 else:
                     col.append(0)

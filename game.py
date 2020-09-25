@@ -6,14 +6,14 @@ from main import Board
 
 black =  (0,0,0)
 white = (255,255,255)
-width = 20
-height = 20
-margin = 5
+width = 4 #20, 8
+height = 4 #20, 8
+margin = 1 #5, 2
 
-grid = Board([[random.randint(0, 1) for i in range(40)] for j in range(24)])
-img = image('Resources/delhi_img.PNG')
+grid = Board([[random.randint(0, 1) for i in range(240)] for j in range(150)])
+img = image('Resources/delhi_contrasting.jpg')
+img.compress(240, 150)
 img.convert_to_black()
-img.compress(40, 24)
 #grid = Board(img.get_binary_arr())
 #grid = Board([[0,0,0,0,0,0,0,0,0,0,0],
 #              [0,0,0,0,0,0,0,0,0,0,0],
@@ -26,13 +26,14 @@ img.compress(40, 24)
 
 pygame.init()
 # width, height (25*40), (25*24) (each cell of width/height 25)
-window_size = [1000, 600]
+window_size = [1200, 750] # ratio 1.6
 screen = pygame.display.set_mode(window_size)
 pygame.display.set_caption("GRID")
 clock = pygame.time.Clock()
 done = False
 
 pause = False
+first_loop = True
 
 while not done:
     for event in pygame.event.get():
@@ -61,6 +62,9 @@ while not done:
                               (margin+height)*row+margin,
                              width,
                              height])
+    if first_loop:
+        pygame.image.save(screen, "Resources/initila_screenshot.jpeg")
+        first_loop = False
     if not pause:
         grid.update()
     #frames per sec
