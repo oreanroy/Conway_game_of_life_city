@@ -6,15 +6,15 @@ from main import Board
 
 black =  (0,0,0)
 white = (255,255,255)
-width = 4 #20, 8
-height = 4 #20, 8
+width = 1 #20, 8
+height = 1 #20, 8
 margin = 1 #5, 2
 
-grid = Board([[random.randint(0, 1) for i in range(240)] for j in range(150)])
+#grid = Board([[random.randint(0, 1) for i in range(240)] for j in range(1500)])
 img = image('Resources/delhi_contrasting.jpg')
-img.compress(240, 150)
+img.compress(840, 600)
 img.convert_to_black()
-#grid = Board(img.get_binary_arr())
+grid = Board(img.get_binary_arr())
 #grid = Board([[0,0,0,0,0,0,0,0,0,0,0],
 #              [0,0,0,0,0,0,0,0,0,0,0],
 #              [0,0,0,0,1,0,0,0,0,0,0],
@@ -26,7 +26,8 @@ img.convert_to_black()
 
 pygame.init()
 # width, height (25*40), (25*24) (each cell of width/height 25)
-window_size = [1200, 750] # ratio 1.6
+#window_size = [1200, 750] # ratio 1.6
+window_size = [1600, 1000]
 screen = pygame.display.set_mode(window_size)
 pygame.display.set_caption("GRID")
 clock = pygame.time.Clock()
