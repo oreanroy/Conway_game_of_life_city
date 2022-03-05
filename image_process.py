@@ -26,11 +26,11 @@ class image:
     def get_binary_arr(self):
         arr = []
         width, height = self.img.size
-        print(f"height {height}, width {width}")
+        #print(f"height {height}, width {width}")
         for i in range(height):
             col = []
             for j in range(width):
-                print(f"this is i {i}, this is j {j}")
+                #print(f"this is i {i}, this is j {j}")
                 pixel_rgb = self.img.load()[j,i]
                 if pixel_rgb >= 180:
                     col.append(1)

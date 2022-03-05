@@ -6,13 +6,13 @@ from main import Board
 
 black =  (0,0,0)
 white = (255,255,255)
-width = 1 #20, 8
-height = 1 #20, 8
+width = 2 #20, 8
+height = 2 #20, 8
 margin = 1 #5, 2
 
 #grid = Board([[random.randint(0, 1) for i in range(240)] for j in range(1500)])
 img = image('Resources/delhi_contrasting.jpg')
-img.compress(840, 600)
+img.compress(420, 300)
 img.convert_to_black()
 grid = Board(img.get_binary_arr())
 #grid = Board([[0,0,0,0,0,0,0,0,0,0,0],
